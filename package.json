@@ -6,7 +6,9 @@
   "author": "Salvatore Laisa",
   "license": "MIT",
   "scripts": {
+    "deploy:gh": "node ./task/deploy.js",
     "copy:css": "node ./task/copyCss.js",
+    "deploy": "webpack && npm run copy:css && npm run deploy:gh",
     "server": "http-server -s ./public",
     "dev": "npm run start & webpack -w",
     "start": "npm run copy:css && npm run server"
@@ -20,6 +22,7 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
+    "gh-pages": "^0.12.0",
     "http-server": "^0.9.0",
     "milligram": "^1.2.2",
     "whatwg-fetch": "^2.0.1"

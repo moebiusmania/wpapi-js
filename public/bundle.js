@@ -40,22 +40,21 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	// Modules
 	
-	__webpack_require__(169);
+	__webpack_require__(1);
 	
-	var _wporgclass = __webpack_require__(168);
+	var _wporgclass = __webpack_require__(2);
 	
 	var _wporgclass2 = _interopRequireDefault(_wporgclass);
 	
-	var _utils = __webpack_require__(166);
+	var _utils = __webpack_require__(3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -87,83 +86,7 @@
 	});
 
 /***/ },
-
-/***/ 166:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	// querySelector shorthand
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var $ = exports.$ = function $(selector) {
-	  return document.querySelector(selector);
-	};
-	
-	var renderPosts = exports.renderPosts = function renderPosts(data, template, output) {
-	  data.forEach(function (e, i) {
-	    var element = template.replace('{{title}}', e.title.rendered).replace('{{id}}', e.id).replace('{{content}}', e.excerpt.rendered);
-	    output.innerHTML += element;
-	  });
-	};
-	
-	var renderCats = exports.renderCats = function renderCats(data, template, output) {
-	  data.forEach(function (e, i) {
-	    var element = template.replace('{{id}}', e.id).replace('{{slug}}', e.slug).replace('{{name}}', e.name);
-	    output.innerHTML += element;
-	  });
-	};
-
-/***/ },
-
-/***/ 168:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var WPORG = function () {
-	  function WPORG() {
-	    _classCallCheck(this, WPORG);
-	
-	    this.url = 'https://demo.wp-api.org/wp-json/wp/v2';
-	  }
-	
-	  _createClass(WPORG, [{
-	    key: 'getPosts',
-	    value: function getPosts(opts) {
-	      var api = this.url + '/posts/?_jsonp&per_page=' + opts.number + '&categories=' + opts.cat;
-	      return fetch(api).then(function (response) {
-	        return response.json();
-	      });
-	    }
-	  }, {
-	    key: 'getCategories',
-	    value: function getCategories(opts) {
-	      var api = this.url + '/categories/?_jsonp';
-	      return fetch(api).then(function (response) {
-	        return response.json();
-	      });
-	    }
-	  }]);
-	
-	  return WPORG;
-	}();
-	
-	exports.default = WPORG;
-
-/***/ },
-
-/***/ 169:
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -622,7 +545,79 @@
 	  self.fetch.polyfill = true;
 	})(typeof self !== 'undefined' ? self : undefined);
 
-/***/ }
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
 
-/******/ });
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var WPORG = function () {
+	  function WPORG() {
+	    _classCallCheck(this, WPORG);
+	
+	    this.url = 'https://demo.wp-api.org/wp-json/wp/v2';
+	  }
+	
+	  _createClass(WPORG, [{
+	    key: 'getPosts',
+	    value: function getPosts(opts) {
+	      var api = this.url + '/posts/?_jsonp&per_page=' + opts.number + '&categories=' + opts.cat;
+	      return fetch(api).then(function (response) {
+	        return response.json();
+	      });
+	    }
+	  }, {
+	    key: 'getCategories',
+	    value: function getCategories(opts) {
+	      var api = this.url + '/categories/?_jsonp';
+	      return fetch(api).then(function (response) {
+	        return response.json();
+	      });
+	    }
+	  }]);
+	
+	  return WPORG;
+	}();
+	
+	exports.default = WPORG;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	// querySelector shorthand
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var $ = exports.$ = function $(selector) {
+	  return document.querySelector(selector);
+	};
+	
+	var renderPosts = exports.renderPosts = function renderPosts(data, template, output) {
+	  data.forEach(function (e, i) {
+	    var element = template.replace('{{title}}', e.title.rendered).replace('{{id}}', e.id).replace('{{content}}', e.excerpt.rendered);
+	    output.innerHTML += element;
+	  });
+	};
+	
+	var renderCats = exports.renderCats = function renderCats(data, template, output) {
+	  data.forEach(function (e, i) {
+	    var element = template.replace('{{id}}', e.id).replace('{{slug}}', e.slug).replace('{{name}}', e.name);
+	    output.innerHTML += element;
+	  });
+	};
+
+/***/ }
+/******/ ]);
 //# sourceMappingURL=bundle.js.map
