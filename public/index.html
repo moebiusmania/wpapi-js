@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WordPress REST API & universal JS</title>
+  <link rel="shortcut icon" href="https://s.w.org/favicon.ico?2" type="image/x-icon" />
+
+  <link rel="stylesheet" href="milligram.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card{
+      background-color: #fff;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.12);
+      padding: 15px;
+      margin-bottom: 20px;
+      height: 250px;
+      overflow-y: scroll;
+    }
+
+    #posts-output{
+      margin-top: 20px;
+    }
+
+    #posts{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WordPress REST API & universal JS</h1>
+
+    <div class="row">
+      <div class="column column-20">
+        Number of posts
+      </div>
+      <div class="column column-10">
+        <input type="number" value="3" min="1" max="10">
+      </div>
+      <div class="column column-10">
+        Category
+      </div>
+      <div class="column">
+        <select id="select-cat" disabled></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <button id="posts" class="button-outline">Get posts from WordPress site!</button>
+      </div>
+    </div>
+
+    <span id="spinner" class="fa fa-refresh fa-spin fa-3x fa-fw"
+      style="display: none;"
+    ></span>
+
+    <div class="row row-wrap" id="posts-output">
+
+    </div>
+
+    <hr>
+    <p><small>Data retrieved from the <a target="_blank"
+      href="https://demo.wp-api.org/">WordPress 4.7 demo site</a>, styles by
+      <a href="https://milligram.github.io/" target="_blank">
+      Milligram CSS</a></small></p>
+  </div>
+
+  <template id="post">
+    <div class="column column-33" data-id="{{id}}">
+      <div class="card">
+        <h5>{{title}}</h5>
+        {{content}}
+      </div>
+    </div>
+  </template>
+
+  <template id="categories">
+    <option data-slug="{{slug}}" value="{{id}}">{{name}}</option>
+  </template>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
